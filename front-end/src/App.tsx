@@ -124,14 +124,14 @@ class App extends React.Component<Props, GameState> {
         <div id="board">
           {this.state.cells.map((cell, i) => this.createCell(cell, i))}
         </div>
+        <div id="instructions">
+          {/* If winner is null, say which player's turn it is */}
+          {this.state.winner === "null" ? `Player ${this.state.currentPlayer}'s turn` : `Player ${this.state.winner} won!`}
+        </div>
         <div id="bottombar">
           <button onClick={/* get the function, not call the function */this.newGame}>New Game</button>
           {/* Exercise: implement Undo function */}
           <button onClick={this.undo}>Undo</button>
-        </div>
-        <div id="instructions">
-          {/* If winner is null, say which player's turn it is */}
-          {this.state.winner === "null" ? `Player ${this.state.currentPlayer}'s turn` : `Player ${this.state.winner} won!`}
         </div>
       </div>
     );
